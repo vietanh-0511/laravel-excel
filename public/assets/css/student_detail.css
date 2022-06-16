@@ -1,0 +1,10 @@
+
+label{
+    font-weight: bold;
+}
+
+.search{
+    width: 50%;
+    align-items: center;
+    margin: auto;
+}
