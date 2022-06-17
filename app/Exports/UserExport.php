@@ -14,6 +14,6 @@ class UserExport implements FromCollection
     */
     public function collection()
     {
-        return Student::all();
+        return User::all();
     }
 }

@@ -17,12 +17,24 @@ class SImport implements ToCollection, WithStartRow, WithCalculatedFormulas
      */
     public function collection(Collection $collection)
     {
-        
+
+
         foreach ($collection as $row) {
             // dump($row);
+
+
             if (empty($row[0])) {
                 continue;
             }
+
+            $id = preg_replace("/\"|\\n/m", '', $row[3]);
+            if (!Student::where(
+                'student_id',
+                $id
+            )->exists()) {
+                continue;
+            }
+
             Student::create([
                 'student_id' => preg_replace("/\"|\\n/m", '', $row[3]),
                 'student_name' => $row[5],

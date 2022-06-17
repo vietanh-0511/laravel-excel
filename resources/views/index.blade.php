@@ -1,8 +1,8 @@
 @extends('layout.layout')
 @section('content')
-    <link rel="stylesheet" href="{{ asset('assets/css/student_detail.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}">
     <div class="card-header">
-        <h3 class="text-center">Student Search</h3>
+        <h3 class="text-center">Student List</h3>
     </div>
     <div class="container">
         <div class="search">
@@ -22,20 +22,20 @@
         </div>
 
 
-        <a href="{{ url('/delete') }}">clear table</a>
+        {{-- <a href="{{ url('/delete') }}">clear table</a> --}}
 
         <div class="content">
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
                         <th>#</th>
-                        <th>id</th>
-                        <th>name</th>
-                        <th>DoB</th>
-                        <th>PoB</th>
-                        <th>gender</th>
-                        <th>phone</th>
-                        <th>school</th>
+                        <th>Mã Học Sing</th>
+                        <th>Tên Học Sing</th>
+                        <th>Ngày Sing</th>
+                        <th>Nơi Sing</th>
+                        <th>Giới Tính</th>
+                        <th>Số Điện Thoại</th>
+                        <th>Trường Tiểu Học</th>
                         <th></th>
 
                     </tr>

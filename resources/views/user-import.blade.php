@@ -2,17 +2,9 @@
 @section('content')
 
     <div class="container mt-5 text-center">
-        {{-- @if (session()->has('message'))
-            <div class="alert alert-success">
-                {{ session()->get('message') }}
-            </div>
-        @endif --}}
-        @if (count($errors) > 0)
-            <div class="alert">
-                Error:
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
+        @if (session()->has('error'))
+            <div class="alert alert-warning">
+                {{ session()->get('error') }}
             </div>
         @endif
         @if ($message = Session::get('success'))
@@ -25,7 +17,7 @@
             @csrf
             <div class="form-group mb-4" style="max-width: 500px; margin: 0 auto;">
                 <div class="custom-file text-left">
-                    <input type="file" name="file" class="custom-file-input" id="customFile">
+                    <input type="file" name="file" class="custom-file-input" id="customFile" required>
                     <label class="custom-file-label" for="customFile">Choose file</label>
                 </div>
             </div>

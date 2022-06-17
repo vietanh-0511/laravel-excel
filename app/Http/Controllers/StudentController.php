@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\StudentExport;
 use App\Imports\SImport;
 use App\Imports\StudentImport;
 use App\Models\Student;
@@ -9,6 +10,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use Throwable;
 
 class StudentController extends Controller
 {
@@ -37,10 +39,20 @@ class StudentController extends Controller
     {
 
         if (file_exists($request->file('file'))) {
-            Excel::import(new SImport, $request->file('file'));
-            return redirect('/import')-> with('success','Import success!!!');
+            try {
+                Excel::import(new SImport, $request->file('file'));
+                return redirect('/import')->with('success', 'Import success!!!');
+            } catch (Throwable $e) {
+                report($e);
+                return redirect('/import')->with('error', 'Import failed!!!');
+            }
         }
-        return 'input file';
+        return redirect('/import')->with('error', 'No file selected!!!');;
+    }
+
+    public function fileExport()
+    {
+        return Excel::download(new StudentExport, 'students-collection.xlsx');
     }
 
     function clearTable()

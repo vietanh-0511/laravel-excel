@@ -1,9 +1,10 @@
-label {
+
+label{
     font-weight: bold;
 }
 
-.info {
-    width: 100%;
+.search{
+    width: 50%;
     align-items: center;
     margin: 5vh auto;
 }
