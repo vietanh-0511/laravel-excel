@@ -25,5 +25,4 @@ Route::get('/student_detail/{student_id}', [StudentController::class, 'getStuden
 Route::post('/file-import', [StudentController::class, 'import'])->name('file-import');
 Route::post('/file-import-user', [UserController::class, 'importProcess'])->name('file-import-user');
 Route::get('/file-export', [UserController::class, 'fileExport'])->name('file-export');
-Route::get('/delete',[StudentController::class, 'clearTable']);
-Route::get('/delete-user', [UserController::class, 'clearTable']);
+Route::get('/delete', [StudentController::class, 'clearTable']);
