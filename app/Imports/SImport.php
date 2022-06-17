@@ -28,7 +28,7 @@ class SImport implements ToCollection, WithStartRow, WithCalculatedFormulas
             }
 
             $id = preg_replace("/\"|\\n/m", '', $row[3]);
-            if (!Student::where(
+            if (Student::where(
                 'student_id',
                 $id
             )->exists()) {
