@@ -7,10 +7,14 @@ use App\Imports\SImport;
 use App\Imports\StudentImport;
 use App\Models\Student;
 use App\Models\User;
+use App\Services\Student\GetStudentById;
+use App\Services\Student\GetStudents;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use Throwable;
+
+use function PHPUnit\Framework\isNull;
 
 class StudentController extends Controller
 {
@@ -19,8 +23,12 @@ class StudentController extends Controller
     {
         $id = $request->input('id');
         $keyword = $request->input('keyword');
-        $get_students =  Student::getStudent($id,$keyword);
-        return view('index', ['get_students' => $get_students]);
+        if ($id == '' && $keyword == '') {
+            $getStudents =  GetStudents::getStudents();
+            return view('index', ['getStudents' => $getStudents]);
+        }
+        $getStudentsByKeyword = GetStudents::getStudentsByKeyword($id, $keyword);
+        return view('index', ['getStudents' => $getStudentsByKeyword]);
         
     }
     
@@ -31,7 +39,7 @@ class StudentController extends Controller
 
     function getStudentById($student_id)
     {
-        $get_student =  Student::getStudentById($student_id);
+        $get_student =  getStudentById::getStudentById($student_id);
         return view('student_detail', ['get_student' => $get_student]);
     }
 

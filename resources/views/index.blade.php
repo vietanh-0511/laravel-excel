@@ -42,7 +42,7 @@
                 </thead>
                 <tbody>
                     <?php $count = 0; ?>
-                    @foreach ($get_students as $item)
+                    @foreach ($getStudents as $item)
                         <tr>
                             <td> <?php echo $count += 1; ?></td>
                             <td>{{ $item->student_id }}</td>

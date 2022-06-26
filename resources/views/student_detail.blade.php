@@ -1,56 +1,56 @@
 @extends('layout.layout')
 @section('content')
     <link rel="stylesheet" href="{{ asset('assets/css/student_detail.css') }}">
-    @foreach ($get_student as $item)
+    {{-- @foreach ($get_student as $item) --}}
         <div class="container">
             <div class="info">
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
                             <label> Mã Học Sing : </label>
-                            {{ $item->student_id }}
+                            {{ $get_student->student_id }}
                         </div>
                         <div class="form-group">
                             <label> Tên Học Sing : </label>
-                            {{ $item->student_name }}
+                            {{ $get_student->student_name }}
                         </div>
                         <div class="form-group">
                             <label> Ngày Sing : </label>
-                            {{ $item->date_of_bitrh }}
+                            {{ $get_student->date_of_bitrh }}
                         </div>
                         <div class="form-group">
                             <label> Nơi Sing : </label>
-                            {{ $item->place_of_birth }}
+                            {{ $get_student->place_of_birth }}
                         </div>
                         <div class="form-group">
                             <label> Giới Tính : </label>
-                            {{ $item->gender }}
+                            {{ $get_student->gender }}
                         </div>
                         <div class="form-group">
                             <label> Số Điện Thoại : </label>
-                            {{ $item->phone }}
+                            {{ $get_student->phone }}
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label> Trường Tiểu Học : </label>
-                            {{ $item->school_name }}
+                            {{ $get_student->school_name }}
                         </div>
                         <div class="form-group">
                             <label> Lớp : </label>
-                            {{ $item->class }}
+                            {{ $get_student->class }}
                         </div>
                         <div class="form-group">
                             <label> Quận/Huyện : </label>
-                            {{ $item->district }}
+                            {{ $get_student->district }}
                         </div>
                         <div class="form-group">
                             <label> Hộ Khẩu Thường Trú :</label>
-                            {{ $item->permanent_residence }}
+                            {{ $get_student->permanent_residence }}
                         </div>
                         <div class="form-group">
                             <label> Dân Tộc : </label>
-                            {{ $item->ethnic }}
+                            {{ $get_student->ethnic }}
                         </div>
                     </div>
                 </div>
@@ -72,15 +72,15 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ $item->first_grade_point }}</td>
-                        <td>{{ $item->second_grade_point }}</td>
-                        <td>{{ $item->third_grade_point }}</td>
-                        <td>{{ $item->forth_grade_point }}</td>
-                        <td>{{ $item->fifth_grade_point }}</td>
-                        <td>{{ $item->five_year_point }}</td>
-                        <td>{{ $item->priority_point }}</td>
-                        <td>{{ $item->total_point }}</td>
-                        <td>{{ $item->note }}</td>
+                        <td>{{ $get_student->first_grade_point }}</td>
+                        <td>{{ $get_student->second_grade_point }}</td>
+                        <td>{{ $get_student->third_grade_point }}</td>
+                        <td>{{ $get_student->forth_grade_point }}</td>
+                        <td>{{ $get_student->fifth_grade_point }}</td>
+                        <td>{{ $get_student->five_year_point }}</td>
+                        <td>{{ $get_student->priority_point }}</td>
+                        <td>{{ $get_student->total_point }}</td>
+                        <td>{{ $get_student->note }}</td>
                     </tr>
                 </tbody>
 
@@ -88,5 +88,5 @@
 
 
         </div>
-    @endforeach
+    {{-- @endforeach --}}
 @endsection
